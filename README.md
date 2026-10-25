@@ -141,19 +141,22 @@ AIエージェントは計画・調査・実装・検証を支援しますが、
 
 ```mermaid
 flowchart TD
-    A["Mission Workspace作成"]
-    B["開発プロジェクト初期化"]
-    C["Mission開始"]
-    D["現状把握・技術調査"]
-    E["Mission遂行計画"]
-    F["Operation開始"]
-    G["Milestone計画"]
-    H["Milestone開始"]
-    I["Taskリスト作成"]
-    J["Task遂行"]
-    K["Milestoneクローズ"]
+    classDef noteclass fill:#fff5ad,stroke:#decc93;
+
+    A["`#128100; Mission Workspace作成`"]
+    B["`#128100; VisualStudioやCargoのプロジェクト初期化`"]
+    C["`#128100; Mission開始指示`"]
+    D["`#129302; 現状把握・技術調査`"]
+    E["`#129302; Mission遂行計画立案`"]
+    F["`#128100; Operation開始指示`"]
+    G["`#129302; Milestone計画立案`"]
+    H["`#128100; Milestone開始指示`"]
+    I["`#129302; Taskリスト作成`"]
+    J["`#128100; Task遂行指示`"]
+    J2["`#129302; Task遂行`"]
+    K["`#129302; Milestoneクローズ`"]
     L{"次のMilestone?"}
-    M["Operationクローズ"]
+    M["`#129302; Operationクローズ`"]
 
 
     A --> B
@@ -165,7 +168,8 @@ flowchart TD
     G --> H
     H --> I
     I --> J
-    J --> K
+    J --> J2
+    J2 --> K
     K --> L
     L -->|Yes| H
     L -->|No| M
